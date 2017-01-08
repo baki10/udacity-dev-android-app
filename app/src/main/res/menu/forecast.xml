@@ -8,4 +8,8 @@
         android:orderInCategory="1"
         android:title="@string/action_refresh"
         app:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_geo_test"
+          android:orderInCategory="2"
+          android:title="@string/action_geo_test"
+          app:showAsAction="never"/>
 </menu>

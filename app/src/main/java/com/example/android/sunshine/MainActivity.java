@@ -134,6 +134,9 @@ public class MainActivity extends AppCompatActivity implements
         invalidateData();
         getSupportLoaderManager().restartLoader(FORECAST_LOADER_ID, null, this);
         return true;
+      case R.id.action_geo_test:
+        openLocationInMap();
+        return true;
       default:
         return super.onOptionsItemSelected(item);
     }
@@ -145,8 +148,8 @@ public class MainActivity extends AppCompatActivity implements
 
   private void openLocationInMap() {
 
-    String addressString = "1600 Amitheatre Parkway, CA";
-    Uri geoLocation = Uri.parse("geo:0,0?q=" + addressString);
+    String addressString = "geo:55.820163, 37.514126";
+    Uri geoLocation = Uri.parse(addressString);
 
     Intent intent = new Intent(Intent.ACTION_VIEW);
     intent.setData(geoLocation);
