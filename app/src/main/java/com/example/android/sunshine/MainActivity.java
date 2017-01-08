@@ -32,19 +32,16 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapter.F
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_forecast);
+    mForecastAdapter = new ForecastAdapter(this);
 
-    mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview_forecast);
     mErrorMessageDisplay = (TextView) findViewById(R.id.tv_error_message_display);
+    mLoadingIndicator = (ProgressBar) findViewById(R.id.pb_loading_indicator);
+    mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview_forecast);
 
     LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
     mRecyclerView.setLayoutManager(layoutManager);
-
     mRecyclerView.setHasFixedSize(true);
-
-    mForecastAdapter = new ForecastAdapter(this);
     mRecyclerView.setAdapter(mForecastAdapter);
-
-    mLoadingIndicator = (ProgressBar) findViewById(R.id.pb_loading_indicator);
 
     /* Once all of our views are setup, we can load the weather data. */
     loadWeatherData();
